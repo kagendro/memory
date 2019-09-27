@@ -23,15 +23,10 @@ class Starter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      squares: Array(16).fill(null),
-      noGuess: true,
-=======
       squares: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
       finalBoard: [],
       randomAss: [],
       openSquares: [],
->>>>>>> 53fa53cfde85336b9628d4c1e0646aa2191dbdde
     };
     this.start();
   }
@@ -133,5 +128,4 @@ class Starter extends React.Component {
       )
     }
   }
-
 
