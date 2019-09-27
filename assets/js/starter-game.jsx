@@ -23,16 +23,13 @@ class Starter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(16).fill(null),
-      noGuess: true;
+      squares: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
+      finalAss: [],
+      openSquares: [],
     };
   }
 
-  swap(_ev) {
-    let state1 = _.assign({}, this.state, { left: !this.state.left });
-    this.setState(state1);
-  }
-  
+
   handleClick(i) {
     const squares = this.state.squares.slice();
     if (this.state.noGuess) {
