@@ -24,7 +24,7 @@ class Starter extends React.Component {
     super(props);
     this.state = {
       squares: Array(16).fill(null),
-      noGuess: true;
+      noGuess: true,
     };
   }
 
