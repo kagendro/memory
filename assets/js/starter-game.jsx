@@ -4,21 +4,13 @@ import _ from 'lodash';
 
 export default function game_init(root) {
   ReactDOM.render(<Starter />, root);
-}
-
-{/* Function iterated from: https://reactjs.org/tutorial/tutorial.html*/}
-function Square(props) {
-  return (
-    <button 
-      className="Square" 
-      onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
-
-
-
+/*Referenced sources:
+ *https://reactjs.org/tutorial/tutorial.html
+ *https://www.youtube.com/watch?v=ZniVgo8U7ek
+ *https://codeburst.io/learning-react-js-by-building-a-minesweeper-game-ced9d41560ed
+ *https://codepen.io/yigitcukuren/pen/GyxxVm?editors=0010
+ *https://stackoverflow.com/questions/5836833/create-an-an-array-with-random-values
+*/
 class Starter extends React.Component {
   constructor(props) {
     super(props);
@@ -78,12 +70,12 @@ class Starter extends React.Component {
 }
 
   start(){
+    console.log("Hi")
     let finalBoard = []
     this.state.randomAss = this.randomizeValues(this.state.squares)
     this.state.randomAss.map((name, index) => {
       finalBoard.push({
 	name,
-
         complete: false,
         close: true,
       })
@@ -93,22 +85,13 @@ class Starter extends React.Component {
    
   randomizeValues(arr) {
     let currentIndex = arr.length, randomIndex, temp;
-    let history = [];
-    while(currentIndex !== 0){
-      currentIndex--;
+    while(0 !== currentIndex){
+      currentIndex -= 1;
       randomIndex = Math.floor(Math.random * (currentIndex + 1));
       temp = arr[currentIndex]
       arr[currentIndex] = arr[randomIndex];
       arr[randomIndex] = temp;
     }
-  }
-  
-  renderSquare(i) {
-    return (
-      <Square value={this.state.squares[i]}
-      onClick={() => this.handleClick(name, index)}
-      />
-    );
   }
 
   render() {
@@ -128,4 +111,39 @@ class Starter extends React.Component {
       )
     }
   }
+
+class Square extends React.Component {
+   constructor(props){
+      super(props)
+      this.state = {
+
+      }
+   }
+   clicked(square){
+      this.props.click(square)
+   }
+   render(){
+     return(
+       <div className={"square" + (!this.props.close ? ' opened' : '') + (this.props.complete ? ' matched' : '')} onClick ={() => this.clicked(this.props.square)}>
+         <div className="front">
+           ?
+         </div>
+         <div className="back">
+         </div>
+       </div>
+
+     )
+   } 
+ }
+   
+
+
+
+
+
+
+
+
+}
+
 

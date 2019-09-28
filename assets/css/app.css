@@ -3,10 +3,11 @@
 @import "~milligram/dist/milligram";
 
 
-.column > p {
-   padding-top: 10ex;
+body {
+   background: gray;
    text-align: center;
 }
+
 
    .starter {
       display: flex;
@@ -14,7 +15,16 @@
       justify-content: space-between;
       perspective: 1000px;
       margin-bottom: -15px;
-   }
+
+   .square {
+      width: 15%;
+      user-select: none;
+      height: 110px;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      margin-bottom: 15px;
+      position: relative;
 
    div {
       backface-visibility: hidden;
@@ -28,6 +38,20 @@
       background: teal;
    }
 
+   .front {
+      font-size: 50px;
+      line-height: 120px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   
+   .back {
+      line-height: 110px;
+   }
+  }
+}
 
 
 

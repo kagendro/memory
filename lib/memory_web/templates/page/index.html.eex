@@ -1,6 +1,11 @@
-<div id="root">
-  React app loading...
-</div>
+<div class="row">
+<div class="column">
 <h1>Memory Game</h1>
+<div id="root">
+React component loading...
+</div>
+</div>
+</div>
+
 
 
