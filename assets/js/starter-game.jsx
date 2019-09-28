@@ -4,6 +4,96 @@ import _ from 'lodash';
 
 export default function game_init(root) {
   ReactDOM.render(<Starter />, root);
+}
+/*Referenced sources:
+ *https://reactjs.org/tutorial/tutorial.html
+ *https://www.youtube.com/watch?v=ZniVgo8U7ek
+ *https://codeburst.io/learning-react-js-by-building-a-minesweeper-game-ced9d41560ed
+ *https://codepen.io/yigitcukuren/pen/GyxxVm?editors=0010
+ *https://stackoverflow.com/questions/5836833/create-an-an-array-with-random-values
+ *https://javascript.info/task/shuffle
+*/
+
+
+const consTiles = ["A","B","C","D","E","F","G","H","A","B","C","D","E","F","G","H"];
+
+function randify(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+
+class Starter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tiles: randify(consTiles),
+      score: 0,
+      openSquares: [],
+      show: true
+    };
+  }
+
+  displayTile(tile){
+    if(true){
+      return tile
+    } else {
+
+    }
+  }
+
+  
+
+  removeTiles(tile){
+    return this.createTiles().filter((item)=> {
+        return item.props.children == tile
+    })
+  }
+
+  createTiles(){
+    return this.state.tiles.map((tile,key) => {
+      return(
+        <button key={key}
+        className="button button-outline column tile"
+        onClick={() => {
+          this.setState({
+            score: this.state.score + 1
+          })
+        }}>
+          {this.displayTile(tile)}
+        </button>
+      )
+    })
+  }
+
+
+  render() {
+    return (
+      <div className="starter">
+        <div className="row board">
+        {console.log("Displays created tiles: ",this.createTiles())}
+          {this.createTiles()}
+        </div>
+        <button
+        onClick={()=>{
+          this.setState({
+            tiles: randify(consTiles),
+            score: 0
+          })
+        }}>Reset
+        </button>
+        <p>Score: {this.state.score}</p>
+      </div>
+    );
+  }
+}
+
+/* import React from 'react';
+import ReactDOM from 'react-dom';
+import _ from 'lodash';
+
+export default function game_init(root) {
+  ReactDOM.render(<Starter />, root);
+*/
 /*Referenced sources:
  *https://reactjs.org/tutorial/tutorial.html
  *https://www.youtube.com/watch?v=ZniVgo8U7ek
@@ -11,11 +101,15 @@ export default function game_init(root) {
  *https://codepen.io/yigitcukuren/pen/GyxxVm?editors=0010
  *https://stackoverflow.com/questions/5836833/create-an-an-array-with-random-values
 */
+/*
+
+const squares: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
+
+
 class Starter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
       finalBoard: [],
       randomAss: [],
       openSquares: [],
@@ -26,7 +120,6 @@ class Starter extends React.Component {
 
   handleClick(name, index) {
 
-    {/* If two guesses have been made*/}
     if (this.state.openSquares.length == 2) {
         setTimeout(() => {
           this.isEqual()
@@ -49,10 +142,9 @@ class Starter extends React.Component {
          this.isEqual()
          },750)   
       }
-   }
-}
+    }
+  }
 
-/* Check to see if the values of the two flipped squares are equal*/
   isEqual(){
     let finalBoard = this.state.finalBoard
     if((this.state.openSquares[0].name == this.state.openSquares[1].name) && (this.state.openSquares[0].index != this.state.openSquares[1])){
@@ -67,7 +159,7 @@ class Starter extends React.Component {
       openSquares: [],
     })
 
-}
+  }
 
   start(){
     console.log("Hi")
@@ -136,14 +228,7 @@ class Square extends React.Component {
    } 
  }
    
-
-
-
-
-
-
-
-
 }
 
+*/
 
