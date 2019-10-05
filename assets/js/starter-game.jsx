@@ -49,7 +49,7 @@ class Starter extends React.Component {
     this.state.finalizedTiles = finalizedTiles;
   }
 
-    handleClick = (tile,key) => {
+    handleClick = (tile, key) => {
         console.log("Tile: " + tile + " Key: " + key)
         let matchesSoFar = this.state.matches;
         if (matchesSoFar !== this.state.maxMatches){
@@ -81,7 +81,8 @@ class Starter extends React.Component {
 
     check(){
       let finalizedTiles = this.state.finalizedTiles
-      if((this.state.openedTiles[0].tile == this.state.openedTiles[1].tile) && (this.state.openedTiles[0].key !== this.state.openedTiles[1].key)
+      if((this.state.openedTiles[0].tile == this.state.openedTiles[1].tile) && 
+	      (this.state.openedTiles[0].key !== this.state.openedTiles[1].key)
         && (finalizedTiles[this.state.openedTiles[0].key].complete !== true)) {
         finalizedTiles[this.state.openedTiles[0].key].complete = true
         finalizedTiles[this.state.openedTiles[1].key].complete = true
